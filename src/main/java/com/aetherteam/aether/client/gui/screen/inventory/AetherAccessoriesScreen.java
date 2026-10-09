@@ -400,7 +400,7 @@ public class AetherAccessoriesScreen extends EffectRenderingInventoryScreen<Aeth
     public static Tuple<Integer, Integer> getButtonOffset(Screen screen) {
         int x = 0;
         int y = 0;
-        if (screen instanceof InventoryScreen || screen instanceof CuriosScreen) {
+        if (screen instanceof InventoryScreen) {
             x = AetherConfig.CLIENT.button_inventory_x.get();
             y = AetherConfig.CLIENT.button_inventory_y.get();
         }
