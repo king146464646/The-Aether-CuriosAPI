@@ -119,6 +119,9 @@ dependencies {
 }
 
 repositories {
+    // The Cumulus fork is published to mavenLocal by CI before this build runs.
+    // Must come first so this resolves to the local fork instead of the official Cumulus maven.
+    mavenLocal()
     maven { url = "https://jitpack.io" }
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
@@ -130,8 +133,6 @@ repositories {
     maven { url = "https://maven.su5ed.dev/releases" }
     maven { url = "https://maven.architectury.dev/" }
     maven { url = "https://packages.aether-mod.net/Nitrogen" }
-    maven { url = "https://packages.aether-mod.net/Cumulus" }
-    mavenLocal()
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
