@@ -9,13 +9,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 public class AetherMenuButton extends Button {
-    private static final WidgetSprites AETHER_WIDGETS = new WidgetSprites(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "title/button"), ResourceLocation.fromNamespaceAndPath(Aether.MODID, "title/button_highlighted"));
-    private static final WidgetSprites AETHER_WIDGETS_SMALL = new WidgetSprites(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "title/button"), ResourceLocation.fromNamespaceAndPath(Aether.MODID, "title/button_highlighted_small"));
+    private static final ResourceLocation AETHER_WIDGETS = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button.png");
+    private static final ResourceLocation AETHER_WIDGETS_HIGHLIGHTED = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button_highlighted.png");
+    private static final ResourceLocation AETHER_WIDGETS_SMALL = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button_highlighted_small.png");
     public final int originalX;
     public final int originalY;
     public int hoverOffset;
@@ -41,11 +41,11 @@ public class AetherMenuButton extends Button {
         Minecraft minecraft = Minecraft.getInstance();
         Font font = minecraft.font;
 
-        ResourceLocation location = this.getWidth() < 100 ? AETHER_WIDGETS_SMALL.get(this.isActive(), this.isHoveredOrFocused()) : AETHER_WIDGETS.get(this.isActive(), this.isHoveredOrFocused());
+        ResourceLocation location = this.getWidth() < 100 ? AETHER_WIDGETS_SMALL : this.isHoveredOrFocused() ? AETHER_WIDGETS_HIGHLIGHTED : AETHER_WIDGETS;
 
         RenderSystem.enableBlend();
         guiGraphics.setColor(1.0F, 1.0F, 1.0F, this.alpha);
-        guiGraphics.blitSprite(location, 200, 20, 0, 0, this.getX() + this.hoverOffset, this.getY(), 200, 20);
+        guiGraphics.blit(location, this.getX() + this.hoverOffset, this.getY(), 0.0F, 0.0F, 200, 20, 200, 20);
         RenderSystem.disableBlend();
 
         poseStack.pushPose();
