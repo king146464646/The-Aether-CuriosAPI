@@ -16,6 +16,7 @@ public class AetherMenuButton extends Button {
     private static final ResourceLocation AETHER_WIDGETS = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button.png");
     private static final ResourceLocation AETHER_WIDGETS_HIGHLIGHTED = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button_highlighted.png");
     private static final ResourceLocation AETHER_WIDGETS_SMALL = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/sprites/title/button_highlighted_small.png");
+
     public final int originalX;
     public final int originalY;
     public int hoverOffset;
